@@ -1,0 +1,9 @@
+<div>
+  <h2>Currency Rates</h2>
+  <ul *ngIf="rates">
+    <li *ngFor="let rate of rates | keyvalue">
+      {{ rate.key }}: {{ rate.value }}
+    </li>
+  </ul>
+  <p *ngIf="!rates">Loading...</p>
+</div>
