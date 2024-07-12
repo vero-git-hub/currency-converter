@@ -1,23 +1,41 @@
-<div>
+<div class="container mt-4">
   <div *ngIf="isDataLoaded; else loading">
-    <div>
-      <input type="number" [(ngModel)]="amount1" (input)="convert1to2()" [disabled]="!isDataLoaded" />
-      <select [(ngModel)]="currency1" (change)="convert1to2()" [disabled]="!isDataLoaded">
-        <option value="UAH">UAH</option>
-        <option value="USD">USD</option>
-        <option value="EUR">EUR</option>
-      </select>
-    </div>
-    <div>
-      <input type="number" [(ngModel)]="amount2" (input)="convert2to1()" [disabled]="!isDataLoaded" />
-      <select [(ngModel)]="currency2" (change)="convert2to1()" [disabled]="!isDataLoaded">
-        <option value="UAH">UAH</option>
-        <option value="USD">USD</option>
-        <option value="EUR">EUR</option>
-      </select>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="amount1">Amount</label>
+          <input type="number" class="form-control" id="amount1" [(ngModel)]="amount1" (input)="convert1to2()" [disabled]="!isDataLoaded" />
+        </div>
+        <div class="form-group">
+          <label for="currency1">Currency</label>
+          <select class="form-control" id="currency1" [(ngModel)]="currency1" (change)="convert1to2()" [disabled]="!isDataLoaded">
+            <option value="UAH">UAH</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="amount2">Amount</label>
+          <input type="number" class="form-control" id="amount2" [(ngModel)]="amount2" (input)="convert2to1()" [disabled]="!isDataLoaded" />
+        </div>
+        <div class="form-group">
+          <label for="currency2">Currency</label>
+          <select class="form-control" id="currency2" [(ngModel)]="currency2" (change)="convert2to1()" [disabled]="!isDataLoaded">
+            <option value="UAH">UAH</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+          </select>
+        </div>
+      </div>
     </div>
   </div>
   <ng-template #loading>
-    Loading...
+    <div class="text-center">
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
   </ng-template>
 </div>
