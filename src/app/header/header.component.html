@@ -1,0 +1,9 @@
+<header>
+  <div *ngIf="usdToUah && eurToUah">
+    <p>1 USD = {{ usdToUah }} UAH</p>
+    <p>1 EUR = {{ eurToUah }} UAH</p>
+  </div>
+  <div *ngIf="!usdToUah || !eurToUah">
+    Loading...
+  </div>
+</header>

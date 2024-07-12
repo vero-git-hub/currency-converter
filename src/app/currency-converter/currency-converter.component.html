@@ -1,9 +1,23 @@
 <div>
-  <h2>Currency Rates</h2>
-  <ul *ngIf="rates">
-    <li *ngFor="let rate of rates | keyvalue">
-      {{ rate.key }}: {{ rate.value }}
-    </li>
-  </ul>
-  <p *ngIf="!rates">Loading...</p>
+  <div *ngIf="isDataLoaded; else loading">
+    <div>
+      <input type="number" [(ngModel)]="amount1" (input)="convert1to2()" [disabled]="!isDataLoaded" />
+      <select [(ngModel)]="currency1" (change)="convert1to2()" [disabled]="!isDataLoaded">
+        <option value="UAH">UAH</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+      </select>
+    </div>
+    <div>
+      <input type="number" [(ngModel)]="amount2" (input)="convert2to1()" [disabled]="!isDataLoaded" />
+      <select [(ngModel)]="currency2" (change)="convert2to1()" [disabled]="!isDataLoaded">
+        <option value="UAH">UAH</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+      </select>
+    </div>
+  </div>
+  <ng-template #loading>
+    Loading...
+  </ng-template>
 </div>
