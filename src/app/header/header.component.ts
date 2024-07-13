@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CurrencyService } from '../currency.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule]
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   usdToUah: number | null = null;
   eurToUah: number | null = null;
   updateInterval: number = 5;
@@ -20,7 +20,11 @@ export class HeaderComponent implements OnInit {
   constructor(private currencyService: CurrencyService) {}
 
   ngOnInit(): void {
-    this.fetchRates();
+    this.currencyService.getRates().subscribe(rates => {
+      this.usdToUah = rates.USD;
+      this.eurToUah = rates.EUR;
+    });
+    this.currencyService.fetchRates();
     this.startAutoUpdate();
   }
 
@@ -28,24 +32,11 @@ export class HeaderComponent implements OnInit {
     this.stopAutoUpdate();
   }
 
-  fetchRates(): void {
-    this.currencyService.getRates().subscribe(
-      data => {
-        console.log('Data received from API:', data);
-        this.usdToUah = 1 / data.USD;
-        this.eurToUah = 1 / data.EUR;
-      },
-      error => {
-        console.error('Error fetching data from API:', error);
-      }
-    );
-  }
-
   startAutoUpdate(): void {
     if (this.autoUpdateEnabled) {
       this.updateIntervalId = setInterval(() => {
-        this.fetchRates();
-      }, this.updateInterval * 60000);
+        this.currencyService.fetchRates();
+      }, this.updateInterval * 1000);
     }
   }
 
@@ -56,6 +47,7 @@ export class HeaderComponent implements OnInit {
   }
 
   updateIntervalChanged(): void {
+    this.updateInterval = Math.floor(this.updateInterval);
     this.stopAutoUpdate();
     this.startAutoUpdate();
   }

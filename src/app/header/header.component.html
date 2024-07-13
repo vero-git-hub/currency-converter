@@ -6,11 +6,11 @@
 
     <div class="mt-3">
       <div class="form-group">
-        <label for="updateInterval">Update Interval (minutes)</label>
+        <label for="updateInterval">Update Interval (seconds)</label>
         <input type="number" id="updateInterval" [(ngModel)]="updateInterval" (change)="updateIntervalChanged()" class="form-control" min="1">
       </div>
       <div class="form-check mt-2">
-        <input class="form-check-input" type="checkbox" id="autoUpdate" checked (change)="toggleAutoUpdate($event)">
+        <input class="form-check-input" type="checkbox" id="autoUpdate" [checked]="autoUpdateEnabled" (change)="toggleAutoUpdate($event)">
         <label class="form-check-label" for="autoUpdate">
           Enable Auto Update
         </label>
