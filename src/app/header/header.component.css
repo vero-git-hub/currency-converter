@@ -1,0 +1,33 @@
+.update-interval-container {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  max-width: 300px;
+  margin-top: 20px;
+  color: #000;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.update-interval-input {
+  width: 100px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.update-interval-label {
+  margin-right: 10px;
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.form-check-input {
+  margin-right: 5px;
+}

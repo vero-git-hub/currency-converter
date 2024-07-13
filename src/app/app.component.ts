@@ -11,5 +11,5 @@ import {HeaderComponent} from "./header/header.component";
   imports: [CommonModule, HeaderComponent, CurrencyConverterComponent],
 })
 export class AppComponent {
-  title = 'currency-converter';
+  title = 'Currency Converter';
 }
