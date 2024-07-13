@@ -1,27 +1,37 @@
-# CurrencyConverter
+# Currency Converter
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.4.
+This is a currency converter application built with Angular. It fetches the current exchange rates for USD and EUR against UAH from open public API and allows users to convert between these currencies. The application also includes an auto-update feature to refresh exchange rates at specified intervals.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Fetches current exchange rates for USD and EUR against UAH
+- Allows conversion between UAH, USD, and EUR
+- Auto-updates exchange rates at specified intervals
+- User can enable/disable auto-update and set the update interval
+- Displays data source with a link to public API
 
-## Code scaffolding
+## Technologies Used
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Node.js (v20.14.0)
+- npm (v10.8.1)
+- Angular, Angular CLI (V18.1.0)
+- RxJS
+- HTML, CSS, Bootstrap
 
-## Build
+## Project Structure
+- src/app: Contains the main application components and services
+- header: Contains the header component which displays exchange rates and update settings
+- currency-converter: Contains the currency converter component
+- currency.service.ts: Contains the service for fetching exchange rates from the API
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Usage
+- The header displays the current exchange rates for USD and EUR against UAH.
+- The "Update Interval" field allows the user to set the interval (in seconds) for auto-updating exchange rates.
+- The "Enable Auto Update" checkbox enables/disables the auto-update feature.
+- The currency converter component allows the user to convert between UAH, USD, and EUR.
 
-## Running unit tests
+## Contributing
+Contributions are welcome! Please open an issue or submit a pull request for any bugs or feature requests.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## License
+This project is licensed under the MIT License.
